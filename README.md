@@ -12,7 +12,7 @@ Python3 code kept simple:
   - json
   - requests
 
-      $ pip3 install evdev logging json requests
+        $ pip3 install evdev logging json requests
 
 # Configuration
 Not much really, I am using a 'Vaydeer Vaydeer Multimedia Console Keyboard' and it reports as 'Vaydeer Vaydeer Multimedia Console Keyboard' 
