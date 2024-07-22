@@ -5,14 +5,41 @@ It is easy to add a small USB Multimedia keyboard (here: https://www.amazon.com/
 ## Disclaimer
 Some (large) chunks of the code are extracted from https://github.com/molobrakos/lms. Thanks for this super clean work, this provided stable foundation with the LMS server and player APIs to speed up the development of that lyrion_preamp tool.
 
-## Dependencies
-Python3 code kept simple:
+## Prerequisites
+### Python3
+The code was kept as simple as possible:
   - evdev
   - logging
   - json
   - requests
 
         $ pip3 install evdev logging json requests
+
+### Squeezelite
+The Lyrion client configuration should control volume with an ALSA mixer:
+
+    /usr/bin/squeezelite -V VolMaster -n oubahoubahplayer
+
+If your card doesn't have a general mixer (for multichannel typically), the asound.conf would look like this:
+
+  pcm.cdsp_out {
+  	type	softvol
+  	min_dB -80.0
+  	max_dB  0.0
+  	slave {
+  		pcm  "hw:USB"
+  	}
+  	control {
+  		name "VolMaster"
+  		card 0
+  	}
+  	hint {
+  		show on
+  		description "CamillaDSP output device with volume control"
+  	}
+  }
+
+And you'll find the connection between the squeezelite command line and the cdsp_out control mixer named "VolMaster".
 
 # Configuration
 Not much really, I am using a 'Vaydeer Vaydeer Multimedia Console Keyboard' and it reports as 'Vaydeer Vaydeer Multimedia Console Keyboard' 
