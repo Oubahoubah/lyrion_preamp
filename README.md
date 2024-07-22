@@ -2,7 +2,7 @@
 Lyrion_preamp is a small utility that runs as a daemon on a squeezelite server to which a multimedia pad is attached to. It captures volume, play, pause, mute, next, prev presses and sends them across to the Lyrion server. This allows for a consistent status of the system across all clients (mobile, local, ...).
 
 ## Disclaimer
-Some chunks of the code come from https://github.com/molobrakos/lms. Thanks for this super clean work, this helped a lot in speeding up the development of lyrion_preamp. 
+Some (large) chunks of the code come from https://github.com/molobrakos/lms. Thanks for this super clean work, this provided stable foundation with the LMS server and player APIs to speed up the development of lyrion_preamp tool.
 
 ## Dependencies
 Python3 code kept simple:
@@ -10,6 +10,8 @@ Python3 code kept simple:
   - logging
   - json
   - requests
+
+    $ pip3 install evdev logging json requests
 
 # Configuration
 Not much really, I am using a 'Vaydeer Vaydeer Multimedia Console Keyboard' and it reports as 'Vaydeer Vaydeer Multimedia Console Keyboard' (here: https://www.amazon.com/Vaydeer-Multimedia-Controller-One-Click-Function/dp/B08V95ZZLM)
