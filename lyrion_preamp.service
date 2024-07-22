@@ -1,0 +1,12 @@
+[Unit]
+Description=Lyrion preamp daemon
+After=network.target
+
+[Service]
+User=oubahoubah
+ExecStart=/home/oubahoubah/bin/lyrion_preamp.py
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
